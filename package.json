@@ -1,0 +1,22 @@
+{
+  "name": "mongoose-benchmark",
+  "version": "0.0.1",
+  "description": "Benchmark for Mongoose",
+  "scripts": {
+    "start": "coffee ./src/"
+  },
+  "keywords": [
+    "mongoose",
+    "benchmark"
+  ],
+  "author": "Leonid Beschastny",
+  "license": "ISC",
+  "dependencies": {
+    "benchmark": "^1.0.0",
+    "coffee-script": "^1.9.2",
+    "microtime": "^1.3.0",
+    "mongoose": "*",
+    "underscore": "^1.8.3",
+    "when": "^3.7.2"
+  }
+}
