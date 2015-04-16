@@ -9,7 +9,7 @@ Benchmark for Mongoose
 
     npm run all
 
-Requires [n] module to be installed globally
+Requires [`n` module][n] to be installed globally
 
     npm install -g n
 
