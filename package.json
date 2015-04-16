@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "Benchmark for Mongoose",
   "scripts": {
-    "start": "coffee ./src/"
+    "start": "coffee ./src/",
+    "all": "./bench.sh"
   },
   "keywords": [
     "mongoose",
