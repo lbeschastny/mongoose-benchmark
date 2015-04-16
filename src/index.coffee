@@ -1,8 +1,12 @@
 run = require './runner'
+Model = require './model'
 
 init = ->
+  _id = Math.random().toString(36).slice(2,12)
+  Model.create({_id}).then -> {_id}
 
-cleanup = (data) ->
+cleanup = ({_id}) ->
+  Model.findByIdAndRemove(_id).exec()
 
 tasks = "#{__dirname}/tasks"
 
