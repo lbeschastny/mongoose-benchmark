@@ -26,7 +26,7 @@ class Runner
     child = spawn 'coffee', ["#{@base}/#{task}.coffee"],
       stdio: [0, 1, 2, 'ipc']
 
-    child.on 'message', ({status, stats}) ->
+    child.on 'message', ({status, stats}) =>
       switch status
         when 'ready'
           child.send {task, @data}
@@ -54,7 +54,7 @@ class Runner
   main: ->
     [opts, tasks] = params process.argv[2...]
     @init().then =>
-      console.log 'Benchmark start'
+      console.log 'Benchmark started'
       @run tasks
     .then (stats) ->
       return stats if '-r' in opts

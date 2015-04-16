@@ -4,9 +4,6 @@ _ = require 'underscore'
 
 benchmark.options.initCount = 1
 
-stat = ({resolve}) -> (event) ->
-  resolve _.extend {@name, @stats}, process.memoryUsage()
-
 await_data = ->
   {reject, resolve, promise} = When.defer()
   timer = setTimeout ->
@@ -28,10 +25,18 @@ main = (run) ->
   .ensure ->
     process.exit()
 
-module.exports = (handler, opts) ->
+module.exports = (handler) ->
   main (task, data) ->
-    {resolver, promise} = When.defer()
-    bench = new benchmark task, handler
-    bench.on 'complete', stat resolver
-    bench.run opts
+    {resolve, reject, promise} = When.defer()
+    bench = new benchmark task, (deferred) ->
+      handler data, (err) ->
+        if err
+          reject err
+        else
+          deferred.resolve()
+    , defer: yes
+    bench.on 'complete', (event) ->
+      mem = process.memoryUsage()
+      resolve _.extend {@name, @stats}, mem
+    bench.run async: yes
     promise
