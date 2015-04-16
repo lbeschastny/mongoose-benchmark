@@ -1,3 +1,5 @@
+mongoose = require 'mongoose'
+
 run = require './runner'
 Model = require './model'
 
@@ -14,6 +16,10 @@ module.exports = main = ->
   run {init, cleanup, tasks}
 
 unless module.parent
+  console.log [
+    "Node.js #{process.version}"
+    "Mongoose@#{mongoose.version}"
+  ].join ' '
   main().then (stats) ->
     console.log stat for stat in stats
     return
