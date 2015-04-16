@@ -1,6 +1,7 @@
 #!/bin/bash
 
 function init {
+  rm -rf ~/.npm
   rm -rf ./node_modules
   npm install --silent &> /dev/null
 }
@@ -23,6 +24,7 @@ function mongoose_4 {
 
 function run {
   npm start --silent
+  echo ""
 }
 
 node_10
