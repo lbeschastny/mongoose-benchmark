@@ -1,5 +1,5 @@
 # mongoose-benchmark
-Benchmark for Mongoose
+Benchmark for [Mongoose]
 
 ## Running benchmark
 
@@ -13,4 +13,5 @@ Requires [`n` module][n] to be installed globally
 
     npm install -g n
 
+  [Mongoose]: https://github.com/Automattic/mongoose
   [n]: https://www.npmjs.com/package/n
