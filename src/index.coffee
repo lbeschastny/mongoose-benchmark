@@ -5,7 +5,7 @@ Model = require './model'
 
 init = ->
   _id = Math.random().toString(36).slice(2,12)
-  Model.create({_id}).then -> {_id}
+  Model.create({_id}).then ({_doc}) -> {_id, _doc}
 
 cleanup = ({_id}) ->
   Model.findByIdAndRemove(_id).exec()

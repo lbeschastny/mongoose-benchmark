@@ -1,8 +1,6 @@
 benchmark = require '../benchmark'
 Model = require '../model'
 
-{data} = new Model
-
-benchmark ({_id}, done) ->
+benchmark ({_doc}, done) ->
   model = new Model undefined, {}, true
-  model.init {_id, data}, undefined, done
+  model.init _doc, undefined, done
