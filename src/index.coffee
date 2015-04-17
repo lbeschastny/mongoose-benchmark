@@ -1,11 +1,14 @@
 mongoose = require 'mongoose'
+_ = require 'underscore'
 
 run = require './runner'
 Model = require './model'
+data = require '../data'
 
 init = ->
   _id = Math.random().toString(36).slice(2,12)
-  Model.create({_id}).then -> {_id}
+  json = _.extend {}, data, {_id}
+  Model.create(json).then -> {_id}
 
 cleanup = ({_id}) ->
   Model.findByIdAndRemove(_id).exec()
